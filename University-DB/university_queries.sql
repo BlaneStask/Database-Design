@@ -1,6 +1,4 @@
--- CMPSC 430 - HW5 Solutions
-
--- Q1:
+-- 1
 -- number of classes an instructor has taught
 select id, count(*) as num_classes
 from teaches
@@ -16,8 +14,7 @@ select id, count(*) as num_classes, sum(credits) as num_credits
 from teaches natural join course
 group by id;
 
--- Q2:
-
+-- 2
 -- extract the courses of Spring 2020
 select course_id, sec_id, semester, year, building, room_number, time_slot_ID 
 from section
@@ -36,10 +33,8 @@ where semester = 'Spring' and year =2020);
 
 select * from section;
 
--- Q3:
-
+-- 3:
 -- To add a tuple into teaches relation, we need instructor id, course id, section id, semester, and year.
-
 -- Extract id of Dr. Katz
 select ID from instructor where name = 'Katz';
 
@@ -60,9 +55,8 @@ where course.dept_name = 'Computer Science' and semester='Spring' and year=2021)
 --and (course_id, sec_id, semester, year) not in 
 --(select course_id, sec_id, semester, year from teaches) ;
 
--- Q4:
+-- 4
 -- To add a tuple into takes relation, we need student id, course id, section id, semester, and year (grade is null in this case).
-
 -- Extract CS students who have not taken CS-347
 select ID from student where dept_name = 'Computer Science'
 minus
@@ -78,8 +72,7 @@ select ID from takes where course_id = 'CS-347');
 
 -- Insert these results into takes relation
 
--- Q5: 
-
+-- 5
 -- Extract the classes that nobody enrolled or assigned to teaches
 
 select distinct course_id, sec_id, semester, year from section
@@ -99,8 +92,7 @@ union
 select distinct course_id, sec_id, semester, year from teaches));
 
 
--- Q6: 
-
+-- 6
 -- Insert new tuples to section with sec_id += 1000, 2000, 3000
 insert into section
 	(select course_id, 
@@ -120,7 +112,3 @@ end;
 -- Delete tuples with old sec_id in section
 delete from section
 where semester = 'Spring' and sec_id in (1,2,3);
-
-
-
-
