@@ -1,6 +1,3 @@
-
--- credits @Erin McHugh and @Cory Sauder
-
 insert into users values('UserAbby', 'Abby', 'Smith', 'smith@gmail.com', 'asmith', 20);
 insert into users values('UserJulia', 'Julia', 'Haze', 'haze@gmail.com', 'jhaze', 21);
 insert into users values('UserJames', 'James', 'O''Brien', 'obrien@yahoo.com', 'jobrien', 18);
